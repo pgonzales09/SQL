@@ -1,0 +1,27 @@
+/** Creating a store database
+
+Pamela Gonzales **/
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, apparel TEXT, price INTEGER, isle INTEGER, season TEXT);
+insert into store values 
+(1, "boots", 10, 2, "winter"), 
+(2, "sandles", 15, 2, "summer"), 
+(3, "sneakers", 8, 2, "fall"), 
+(4, "flip flops", 5, 2, "spring"), 
+(5, "rain boots", 10, 2, "spring"), 
+(6, "T shirts", 10, 3, "summer"), 
+(7, "dress", 23, 3, "spring"),
+(8, "shorts", 10, 3, "summer"), 
+(9, "coat", 30, 3, "spring"), 
+(10, "sweater", 20, 3, "winter"),
+(11, "necleace", 300, 4, "fall"),
+(12, "ring", 100, 4, "winter"),
+(13, "bracelet", 10, 4, "spring"),
+(14, "hair pin", 1, 4, "fall"),
+(15, "toe ring", 10, 4, "summer");
+
+--display the database ordered by price. 
+SELECT * FROM store ORDER BY price DESC;
+
+--display the item that has the maximum price in the database.
+SELECT MAX(price) from store;
