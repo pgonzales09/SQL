@@ -60,17 +60,14 @@ VALUES
 
 # Analysis: 
 
-# Assign all the companies in the Technology industry as "work/life balance friendly workplace", "acceptable", or --"bad" based on paid time off offered. 
-SELECT
-company_name,
-CASE 
-  WHEN paid_time_off_days >= 18 THEN 'work/life balance friendly workplace'
-  WHEN paid_time_off_days >= 15 THEN 'acceptable'
-  ELSE 'bad'
-END as work_life_balance
+--What is the average employee tenure for each industry. If its 7 year or more the industry has great retention rate, if its 5yrs or more then  it has medium retention, anything lower is low retention rate. 
+
+SELECT industry,
+CASE WHEN avg_employee_tenure >= 7.0 THEN 'Great retention rate'
+WHEN avg_employee_tenure >= 5.0 THEN 'Medium retention rate'
+ELSE'low retention rate' END AS avg_employee_tenure
 FROM fortune_companies
-WHERE industry='Technology'
-;
+GROUP BY industry;
 
 # Which industries have an average revenue of at least $200 Billion, and what are their avg revenues?
 SELECT industry, ROUND(AVG(revenue),1) as avg_revenue_billions
